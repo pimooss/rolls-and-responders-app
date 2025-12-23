@@ -1,6 +1,6 @@
 {
   "name": "rolls-and-responders-app",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Interactive tabletop exercise application for testing cybersecurity incident response plans. Based on NCSC NZ Rolls & Responders framework.",
   "repository": {
     "type": "git",
