@@ -1,0 +1,53 @@
+{
+  "name": "rolls-and-responders-app",
+  "version": "1.0.0",
+  "description": "Interactive tabletop exercise application for testing cybersecurity incident response plans. Based on NCSC NZ Rolls & Responders framework.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joris-decombe/rolls-and-responders-app.git"
+  },
+  "keywords": [
+    "cybersecurity",
+    "incident-response",
+    "tabletop-exercise",
+    "ncsc",
+    "rolls-and-responders",
+    "security-training"
+  ],
+  "author": "joris-decombe",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/joris-decombe/rolls-and-responders-app/issues"
+  },
+  "homepage": "https://github.com/joris-decombe/rolls-and-responders-app#readme",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "screenshots": "node scripts/take-screenshots.mjs"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.23",
+    "lucide-react": "^0.562.0",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "playwright": "^1.57.0",
+    "vite": "^7.2.4"
+  }
+}
