@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { chromium } from 'playwright';
 
-const baseURL = 'http://localhost:5174';
+const baseURL = 'http://localhost:5173/rolls-and-responders-app/';
 const screenshotDir = '.github/screenshots';
 
 async function takeScreenshots() {

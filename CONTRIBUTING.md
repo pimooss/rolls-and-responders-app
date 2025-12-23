@@ -24,7 +24,11 @@ npm run lint
 ├── src/
 │   ├── App.jsx           # Main application component
 │   ├── scenarios.js      # Scenario definitions
-│   └── index.css         # Tailwind CSS styles
+│   ├── i18n.js           # i18n configuration
+│   ├── index.css         # Tailwind CSS styles
+│   └── locales/          # Translation files
+│       ├── en.json       # English translations
+│       └── fr.json       # French translations
 ├── scripts/
 │   └── take-screenshots.mjs  # Screenshot generation tool
 ├── .github/
@@ -36,38 +40,105 @@ npm run lint
 
 Scenarios should follow the NCSC NZ Rolls & Responders format. To add a new scenario:
 
-1. Add the scenario object to `SCENARIOS` in [`src/scenarios.js`](src/scenarios.js)
-2. Follow this structure:
+1. Add translations for the scenario to [`src/locales/en.json`](src/locales/en.json) and [`src/locales/fr.json`](src/locales/fr.json):
+
+```json
+"scenarios": {
+  "scenarioId": {
+    "title": "Scenario: Name",
+    "difficulty": "Easy|Medium|Hard",
+    "description": "Brief description",
+    "briefingTitle": "Briefing & Setup",
+    "briefingPublic": "Welcome text...",
+    "briefingFacilitator": "Facilitator notes...",
+    "turn1Title": "Turn 1: Name",
+    "turn1Public": "Text shown to players",
+    "turn1Facilitator": "Background info (facilitator only)",
+    // ... more turns
+    "inject1Title": "Inject 1: Name",
+    "inject1Content": "Inject content"
+  }
+}
+```
+
+2. Add the scenario to the `getScenarioData()` function in [`src/scenarios.js`](src/scenarios.js):
 
 ```javascript
 'scenario-id': {
   id: 'scenario-id',
   code: '####',              // 4-digit scenario code
-  title: "Scenario: Name",
-  difficulty: "Easy|Medium|Hard",
-  description: "Brief description",
+  title: t('scenarios.scenarioId.title'),
+  difficulty: t('scenarios.scenarioId.difficulty'),
+  description: t('scenarios.scenarioId.description'),
   turns: [
     {
       id: 0,
-      title: "Briefing & Setup",
-      publicText: "Text shown to players",
-      facilitatorInfo: "Background info (facilitator only)"
+      title: t('scenarios.scenarioId.briefingTitle'),
+      publicText: t('scenarios.scenarioId.briefingPublic'),
+      facilitatorInfo: t('scenarios.scenarioId.briefingFacilitator')
     },
     // ... more turns
   ],
   injects: [
     {
       id: 'inject_##',
-      title: "Inject ##: Name",
-      content: "Inject content",
-      triggerText: "Button label"
+      title: t('scenarios.scenarioId.inject1Title'),
+      content: t('scenarios.scenarioId.inject1Content')
     }
   ]
 }
 ```
 
-3. Test the scenario in both Facilitator and Player views
-4. Update documentation if needed
+3. Add the scenario ID to the `getScenarioIds()` array
+4. Test the scenario in both Facilitator and Player views in both languages
+5. Update documentation if needed
+
+## Adding Translations
+
+The app supports multiple languages using react-i18next. Currently supported languages:
+- English (`en`)
+- French (`fr`)
+
+### To add a new language:
+
+1. Create a new translation file in `src/locales/` (e.g., `de.json` for German)
+2. Copy the structure from `en.json` and translate all values
+3. Import and add the language in `src/i18n.js`:
+
+```javascript
+import de from './locales/de.json';
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: en },
+      fr: { translation: fr },
+      de: { translation: de }  // Add new language
+    },
+    // ...
+  });
+```
+
+4. Add the language option to the `LanguageSelector` component in `src/App.jsx`:
+
+```jsx
+<option value="de">Deutsch</option>
+```
+
+5. Test all views (Landing, Facilitator, Player) in the new language
+
+### Translation file structure:
+
+- `landing.*` - Landing page text
+- `header.*` - Header and navigation elements
+- `facilitator.*` - Facilitator console UI elements
+- `player.*` - Player display UI elements
+- `difficulty.*` - Difficulty levels and descriptions
+- `log.*` - Log entry text
+- `scenarios.*` - Scenario content (title, description, turns, injects)
+
+**Note:** Keep the "ROLLS & RESPONDERS" brand name unchanged across all languages. Only translate the subtitle and descriptive text.
 
 ## Updating Screenshots
 
