@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-12-24
+
+### Added
+
+**New 2025 Threat Scenarios (Based on Real-World Incidents):**
+
+Three new cybersecurity scenarios reflecting emerging threats from 2024-2025:
+
+1. **The "Deepfake" CFO** (Easy) - Scenario code: 1461
+   - AI-driven Business Email Compromise using deepfake video technology
+   - Based on the Arup Hong Kong incident (February 2024) - $25M fraudulent transfer
+   - Features social engineering via deepfake video conference call
+   - 3 turns: Pre-incident, Response, Recovery
+   - Inject: Media coverage of similar attacks
+
+2. **The Poisoned Package** (Medium) - Scenario code: 3164
+   - Software supply chain attack via NPM/PyPI typosquatting
+   - Based on XZ Utils backdoor (CVE-2024-3094) and Polyfill.io compromise
+   - Features malicious dependency with credential exfiltration
+   - 3 turns: Pre-incident, Response, Recovery
+   - Injects: Developer reports anomaly, additional compromised systems discovered
+
+3. **Hypervisor Ransomware** (Hard) - Scenario code: 5126
+   - VMware ESXi/Hyper-V hypervisor-level ransomware with double extortion
+   - Based on ESXiArgs and Akira ransomware campaigns (2024)
+   - Features VM encryption and data exfiltration threats
+   - 3 turns: Pre-incident, Response, Recovery
+   - Injects: Ransom demand with threat publication, backup corruption discovered
+
+**Scenario Features:**
+- Full multi-language support (English and French)
+- Real-life incident references for facilitators
+- Difficulty ratings aligned with current threat landscape
+- All scenarios follow NCSC Rolls & Responders format
+
+### Changed
+
+- Expanded scenario library from 3 to 6 official scenarios
+- Updated scenario selection to include 2025 threat landscape coverage
+
+### Technical Details
+
+**Files Modified:**
+- `src/scenarios.js` - Added three new scenario definitions
+- `src/locales/en.json` - Added English translations for new scenarios
+- `src/locales/fr.json` - Added French translations for new scenarios
+
 ## [1.1.0] - 2025-12-23
 
 ### Added
@@ -114,5 +161,6 @@ Original concept by Kate Pearce & TradeMe NZ via NZITF.
 
 ---
 
+[1.2.0]: https://github.com/joris-decombe/rolls-and-responders-app/releases/tag/v1.2.0
 [1.1.0]: https://github.com/joris-decombe/rolls-and-responders-app/releases/tag/v1.1.0
 [1.0.0]: https://github.com/joris-decombe/rolls-and-responders-app/releases/tag/v1.0.0
