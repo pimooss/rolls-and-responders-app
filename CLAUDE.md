@@ -83,7 +83,9 @@ Scenarios are defined as objects with:
 - `injects[]`: Optional events the facilitator can trigger (from Extra Injects table in manual)
 - Each turn has `publicText` (shown to players) and `facilitatorInfo` (hidden, facilitator-only)
 
-**Current Scenarios** (from NCSC NZ Rolls & Responders Facilitator Manual V1.1):
+**Current Scenarios**:
+
+**NCSC NZ Official Scenarios** (from Rolls & Responders Facilitator Manual V1.1):
 
 1. **DDoS Attack** (Code 4452) - Easy
    - Paid stressor service hired by criminals for Bitcoin extortion
@@ -100,10 +102,29 @@ Scenarios are defined as objects with:
    - 3 turns: Pre-Incident → Response Phase → Recovery
    - Injects: Historical researcher warning, media article
 
+**2025 Real-World Incident Scenarios**:
+
+4. **The "Deepfake" CFO** (Code 1461) - Easy
+   - AI-driven BEC via deepfake video (based on 2024 Arup Hong Kong $25M case)
+   - 3 turns: Pre-Incident → Response → Recovery
+   - Inject: Media coverage of similar attacks
+
+5. **The Poisoned Package** (Code 3164) - Medium
+   - Supply chain attack via NPM/PyPI typosquatting (based on XZ Utils CVE-2024-3094 & Polyfill.io)
+   - 3 turns: Pre-Incident → Response → Recovery
+   - Injects: Developer reports anomaly, additional compromised systems discovered
+
+6. **Hypervisor Ransomware** (Code 5126) - Hard
+   - ESXi/Hyper-V ransomware with double extortion (based on ESXiArgs & Akira campaigns)
+   - 3 turns: Pre-Incident → Response → Recovery
+   - Injects: Ransom demand with threat publication, backup corruption discovered
+
 **Adding custom scenarios**:
-1. Add to `SCENARIOS` object in `scenarios.js`
-2. Follow the structure of existing R&R scenarios
-3. Include difficulty rating and scenario code
+1. Add translations to `src/locales/en.json` and `src/locales/fr.json`
+2. Add to `getScenarioData(t)` function in `scenarios.js`
+3. Add scenario ID to `getScenarioIds()` array
+4. Follow the structure of existing R&R scenarios
+5. Include difficulty rating and scenario code
 
 ## Key Files
 
