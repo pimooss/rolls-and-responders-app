@@ -15,7 +15,8 @@ Based on the [NCSC New Zealand "Rolls & Responders"](https://www.ncsc.govt.nz/pr
 ## Features
 
 - **Dual-View Architecture**: Separate facilitator console and player display that sync via localStorage
-- **Scenario Library**: 3 official NCSC NZ scenarios (DDoS, Ransomware, Cloud Compromise)
+- **Scenario Library**: 6 scenarios including 3 NCSC NZ official scenarios + 3 2025 real-world incident scenarios
+- **Multi-Language Support**: Full English and French translations
 - **D20 Dice System**: Advantage/Disadvantage mechanics for action resolution
 - **Dynamic Injects**: Facilitator can trigger unexpected events during gameplay
 - **Cross-Tab Sync**: Open in multiple windows for simultaneous facilitator/player views
@@ -70,17 +71,33 @@ Facilitators can trigger unexpected events during gameplay.
 
 ## Scenarios
 
-### 1. DDoS Attack (Easy)
+### NCSC NZ Official Scenarios
+
+#### 1. DDoS Attack (Easy)
 **Code**: 4452
 Paid stressor service hired by criminals for Bitcoin extortion. Tests availability response and stakeholder communication.
 
-### 2. Ransomware (Medium)
+#### 2. Ransomware (Medium)
 **Code**: 1456
 Security tester USB attack on admin laptop. Tests backup recovery and incident disclosure.
 
-### 3. Cloud Infrastructure Compromise (Hard)
+#### 3. Cloud Infrastructure Compromise (Hard)
 **Code**: 6244
 Misconfigured access keys lead to PII exfiltration. Tests data breach response and media handling.
+
+### 2025 Real-World Incident Scenarios
+
+#### 4. The "Deepfake" CFO (Easy)
+**Code**: 1461
+AI-driven Business Email Compromise using deepfake video technology. Based on the 2024 Arup Hong Kong incident where $25M was fraudulently transferred via deepfake video conference call. Tests detection of AI-generated media and social engineering response.
+
+#### 5. The Poisoned Package (Medium)
+**Code**: 3164
+Software supply chain attack via NPM/PyPI typosquatting. Based on XZ Utils backdoor (CVE-2024-3094) and Polyfill.io compromise. Tests secure development practices and supply chain security.
+
+#### 6. Hypervisor Ransomware (Hard)
+**Code**: 5126
+VMware ESXi/Hyper-V hypervisor-level ransomware with double extortion tactics. Based on ESXiArgs and Akira ransomware campaigns (2024). Tests critical infrastructure response and backup strategy at the virtualization layer.
 
 ## How to Play
 
